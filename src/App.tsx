@@ -1,15 +1,13 @@
 import { Trash2 } from "lucide-react";
-import Logo from "../public/logo.png";
 import { CardAlert } from "./components/CardAlert";
 import { FormAdd } from "./components/FormAdd";
 import { CardText } from "./components/CardText";
+import { HeaderLogo } from "./components/HeaderLLogo";
 
 export function App() {
   return (
     <div className="flex justify-center items-center flex-col gap-8 pb-4">
-      <header className="h-10 py-12 flex items-center">
-        <img src={Logo} alt="Logo Imagem" className="md:flex hidden" />
-      </header>
+      <HeaderLogo />
       <div className="space-y-8">
         <CardText />
         <FormAdd />
