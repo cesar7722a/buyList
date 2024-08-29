@@ -1,7 +1,8 @@
-import { ArrowLeft, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import Logo from "../public/logo.png";
 import { CardAlert } from "./components/CardAlert";
 import { FormAdd } from "./components/FormAdd";
+import { CardText } from "./components/CardText";
 
 export function App() {
   return (
@@ -10,15 +11,7 @@ export function App() {
         <img src={Logo} alt="Logo Imagem" className="md:flex hidden" />
       </header>
       <div className="space-y-8">
-        <div className="space-y-4">
-          <button className="text-[#CA3884] text-sm hover:text-[#A52C6B] flex items-center">
-            <span>
-              <ArrowLeft className="size-5" />
-            </span>
-            Voltar
-          </button>
-          <h2 className="font-bold text-2xl">Compras da semana</h2>
-        </div>
+        <CardText />
         <FormAdd />
         <div>
           <ul className="space-y-3">
