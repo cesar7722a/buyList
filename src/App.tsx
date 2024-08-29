@@ -1,9 +1,9 @@
-import { ArrowLeft, Trash2 } from "lucide-react";
+import { ArrowLeft, CircleAlert, Trash2, X } from "lucide-react";
 import Logo from "../public/logo.png";
 
 export function App() {
   return (
-    <div className="flex justify-center items-center flex-col gap-16">
+    <div className="flex justify-center items-center flex-col gap-8 pb-4">
       <header className="h-10 py-12 flex items-center">
         <img src={Logo} alt="Logo Imagem" className="md:flex hidden" />
       </header>
@@ -75,6 +75,17 @@ export function App() {
               </span>
             </li>
           </ul>
+        </div>
+        <div className="flex items-center gap-2 p-3 rounded-xl py-2 bg-[#C93847]">
+          <span className="p-2">
+            <CircleAlert className="text-white size-5" />
+          </span>
+          <p className="flex-1 font-semibold text-white">
+            O item foi removido da lista
+          </p>
+          <button className="p-2">
+            <X className="text-white size-5" />
+          </button>
         </div>
       </div>
     </div>
