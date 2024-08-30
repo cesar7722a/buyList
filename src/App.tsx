@@ -9,6 +9,13 @@ import { ListProps } from "./types";
 export function App() {
   const [lists, updateLists] = useImmer<ListProps[]>([]);
 
+  const deletBuy = (buyId: number) => {
+    updateLists((draft) => {
+      const index = draft.findIndex((a) => a.id === buyId);
+      draft.splice(index, 1);
+    });
+  };
+
   return (
     <div className="flex justify-center items-center flex-col gap-8 pb-4">
       <HeaderLogo />
@@ -17,7 +24,7 @@ export function App() {
         <FormAdd updateListsBuy={updateLists} />
         <ul className="space-y-3">
           {lists.map((list) => (
-            <ListBuy id={list.id} name={list.name} />
+            <ListBuy deletBuy={deletBuy} id={list.id} name={list.name} />
           ))}
         </ul>
         <CardAlert />

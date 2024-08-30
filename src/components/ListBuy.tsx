@@ -1,7 +1,12 @@
 import { Trash2 } from "lucide-react";
-import { ListProps } from "../types";
 
-export function ListBuy({ name, id }: ListProps) {
+export type ListProps = {
+  name: string;
+  id: number;
+  deletBuy: (idBuy: number) => void;
+};
+
+export function ListBuy({ name, id, deletBuy }: ListProps) {
   return (
     <li
       key={id}
@@ -9,7 +14,7 @@ export function ListBuy({ name, id }: ListProps) {
     >
       <input type="checkbox" className="accent-[#CA3884]" />
       <p className="flex-1 text-[#374151] font-medium">{name}</p>
-      <button className="p-2">
+      <button className="p-2" onClick={() => deletBuy(id)}>
         <Trash2 className="size-5 text-[#9CA3AF]" />
       </button>
     </li>
