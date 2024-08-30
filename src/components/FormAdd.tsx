@@ -1,9 +1,6 @@
 import { FormEvent, useState } from "react";
+import { ListProps } from "../types";
 
-type ListProps = {
-  name: string;
-  id: number;
-};
 type FormAddProps = {
   updateListsBuy: (updater: (draft: ListProps[]) => void) => void;
 };

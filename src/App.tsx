@@ -4,18 +4,10 @@ import { CardText } from "./components/CardText";
 import { HeaderLogo } from "./components/HeaderLLogo";
 import { useImmer } from "use-immer";
 import { ListBuy } from "./components/ListBuy";
-type ListProps = {
-  name: string;
-  id: number;
-};
+import { ListProps } from "./types";
+
 export function App() {
-  const [lists, updateLists] = useImmer<ListProps[]>([
-    { name: "Pão de forma", id: 1 },
-    { name: "Café preto", id: 2 },
-    { name: "Suco de laranja", id: 3 },
-    { name: "Bolacha", id: 4 },
-    { name: "Farinha de trigo", id: 5 },
-  ]);
+  const [lists, updateLists] = useImmer<ListProps[]>([]);
 
   return (
     <div className="flex justify-center items-center flex-col gap-8 pb-4">
@@ -25,7 +17,7 @@ export function App() {
         <FormAdd updateListsBuy={updateLists} />
         <ul className="space-y-3">
           {lists.map((list) => (
-            <ListBuy listId={list.id} listName={list.name} />
+            <ListBuy id={list.id} name={list.name} />
           ))}
         </ul>
         <CardAlert />
