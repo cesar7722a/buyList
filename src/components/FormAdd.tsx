@@ -12,6 +12,7 @@ let nextId = 10;
 
 export function FormAdd({ updateListsBuy }: FormAddProps) {
   const [inputBuy, setInputBuy] = useState<string>();
+
   const AddBuy = (e: FormEvent) => {
     e.preventDefault();
 
@@ -23,8 +24,10 @@ export function FormAdd({ updateListsBuy }: FormAddProps) {
         id: nextId++,
       });
     });
+
     setInputBuy("");
   };
+
   return (
     <form onSubmit={AddBuy} className="max-w-2xl flex gap-4">
       <input
