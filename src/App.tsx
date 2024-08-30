@@ -5,15 +5,22 @@ import { HeaderLogo } from "./components/HeaderLLogo";
 import { useImmer } from "use-immer";
 import { ListBuy } from "./components/ListBuy";
 import { ListProps } from "./types";
+import { useState } from "react";
 
 export function App() {
   const [lists, updateLists] = useImmer<ListProps[]>([]);
+  const [isOpentoast, setIsOpentoast] = useState<boolean>(false);
 
   const deletBuy = (buyId: number) => {
     updateLists((draft) => {
       const index = draft.findIndex((a) => a.id === buyId);
       draft.splice(index, 1);
     });
+    setIsOpentoast(true);
+  };
+
+  const closedToast = () => {
+    setIsOpentoast(false);
   };
 
   return (
@@ -27,7 +34,7 @@ export function App() {
             <ListBuy deletBuy={deletBuy} id={list.id} name={list.name} />
           ))}
         </ul>
-        <CardAlert />
+        {isOpentoast && <CardAlert closedToast={closedToast} />}
       </div>
     </div>
   );
