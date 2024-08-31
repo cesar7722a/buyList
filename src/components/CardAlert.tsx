@@ -6,15 +6,18 @@ type CardAlertProps = {
 
 export function CardAlert({ closedToast }: CardAlertProps) {
   return (
-    <div className="flex items-center gap-2 p-3 rounded-xl py-2 bg-[#C93847]">
+    <div
+      className=" flex items-center gap-2 p-3 rounded-xl py-2 bg-[#C93847]
+    fixed bottom-16 left-1/2 transform -translate-x-1/2 text-white px-4 shadow-lg"
+    >
       <span className="p-2">
-        <CircleAlert className="text-white size-5" />
+        <CircleAlert className="size-5" />
       </span>
       <p className="flex-1 font-semibold text-white">
         O item foi removido da lista
       </p>
       <button className="p-2" onClick={closedToast}>
-        <X className="text-white size-5" />
+        <X className="size-5" />
       </button>
     </div>
   );
