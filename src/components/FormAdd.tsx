@@ -1,27 +1,21 @@
 import { FormEvent, useState } from "react";
-import { ListProps } from "../types";
 
 type FormAddProps = {
-  updateListsBuy: (updater: (draft: ListProps[]) => void) => void;
+  dispatch: React.Dispatch<Action>;
 };
 
-let nextId = 10;
-
-export function FormAdd({ updateListsBuy }: FormAddProps) {
+export function FormAdd({ dispatch }: FormAddProps) {
   const [inputBuy, setInputBuy] = useState<string>();
 
   const AddBuy = (e: FormEvent) => {
     e.preventDefault();
 
+    const nextItem = { name: inputBuy, id: Math.floor(Math.random() * 1000) };
     if (!inputBuy) return;
-
-    updateListsBuy((draft) => {
-      draft.push({
-        name: inputBuy,
-        id: nextId++,
-      });
+    dispatch({
+      type: "add",
+      payload: nextItem,
     });
-
     setInputBuy("");
   };
 
